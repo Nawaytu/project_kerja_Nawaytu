@@ -11,7 +11,6 @@ class Project_model extends CI_model
         $query = $this->db->limit($limit,$start)->get();
         return $query->result_array();
     }
-
     public function getClient()
     {
         $this->db->select('*');
@@ -29,15 +28,15 @@ class Project_model extends CI_model
 
     public function search()
     {
-        $keyword = $this->input->post('keyword', true);
-        // $client = $this->input->post('client', true);
-        // $status = $this->input->post('status', true);
-        $this->db->like('project_name', $keyword);
-        $this->db->or_like('client_name', $keyword);
-        $this->db->or_like('project_status', $keyword);
+        $keyword = $this->input->post('keyword');
+        // $client = $this->input->post('client');
+        // $status = $this->input->post('status');
         $this->db->select('*');
         $this->db->from('tb_m_project');
-        $this->db->join('tb_m_client', 'tb_m_client.client_id = tb_m_project.client_id');
+        $this->db->join('tb_m_client', 'tb_m_project.client_id = tb_m_client.client_id');
+        $this->db->like('project_name', $keyword);        
+        // $this->db->or_like('client_name', $client);
+        // $this->db->or_like('project_status', $status);
         $query = $this->db->get();
         return $query->result_array();
     }

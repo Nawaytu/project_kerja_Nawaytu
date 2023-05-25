@@ -32,12 +32,12 @@
                     <select name="client_id" class="form-select" aria-label="Default select example">
                         <?php foreach($clients as $client): ?>
                             <?php if ( $client == $project['client_id']): ?>
-                                <option selected value="<?= $client['client_id'] ?>">
-                                <?= $project['client_name'] ?>
+                                <option name="client_id" selected value="<?= $client['client_id'] ?>">
+                                <?= $client['client_name'] ?>
                                 </option>
                             <?php else : ?>
-                                <option value="<?= $client['client_id'] ?>">
-                                <?= $project['client_name'] ?>
+                                <option name="client_id" value="<?= $client['client_id'] ?>">
+                                <?= $client['client_name'] ?>
                                 </option>
                             <?php endif; ?>
                         <?php endforeach; ?>

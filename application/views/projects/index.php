@@ -21,10 +21,10 @@
                 </div>
                 <!-- <div class="col mb-3">
                     <label for="formGroupExampleInput" class="form-label">Client</label>
-                    <select name="keyword" class="form-select" aria-label="Default select example">
-                        <option name="keyword">Select All</option>
+                    <select name="client" class="form-select" aria-label="Default select example">
+                        <option>Select All</option>
                         <?php foreach ($clients as $client): ?>
-                        <option name="keyword" value="<?= $client['client_name'] ?>">
+                        <option value="<?= $client['client_name'] ?>">
                             <?= $client['client_name'] ?>
                         </option>
                         <?php endforeach; ?>
@@ -33,10 +33,10 @@
                 </div>
                 <div class="col mb-3">
                     <label for="formGroupExampleInput" class="form-label">Status</label>
-                    <select name="keyword" class="form-select" aria-label="Default select example">
-                        <option  name="keyword">Select All</option>
+                    <select name="status" class="form-select" aria-label="Default select example">
+                        <option>Select All</option>
                         <?php foreach ($status as $status): ?>
-                        <option name="keyword" value="<?= $status['project_status'] ?>">
+                        <option value="<?= $status['project_status'] ?>">
                             <?= $status['project_status'] ?>
                         </option>
                         <?php endforeach; ?>
@@ -81,10 +81,10 @@
                             <?= $project['client_name'] ?>
                         </td>
                         <td>
-                            <?= $project['project_start'] ?>
+                            <?=  date('d F Y', strtotime($project['project_start']))?>
                         </td>
                         <td>
-                            <?= $project['project_end'] ?>
+                            <?= date('d F Y', strtotime($project['project_end']))?>
                         </td>
                         <td>
                             <?= $project['project_status'] ?>
